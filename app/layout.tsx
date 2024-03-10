@@ -16,18 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header className="bg-white h-[4rem] w-[100vw] flex justify-start items-center">
-          <div className="flex w-[50%] justify-center items-center">
-            <a href="/login">
-              {" "}
-              <img src="img/Logo.png" alt="logo" />
-            </a>
-          </div>
-          <div>&nbsp;</div>
-        </header>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
