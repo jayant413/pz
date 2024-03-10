@@ -25,6 +25,7 @@ const Login = () => {
     if (response.data.success) {
       router.push("/test-page");
       localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("userName", username);
     }
   };
 

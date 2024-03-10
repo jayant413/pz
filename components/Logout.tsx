@@ -8,8 +8,8 @@ const Logout = () => {
     <div>
       <button
         onClick={() => {
-          console.log("first");
           localStorage.removeItem("loggedIn");
+          localStorage.removeItem("username");
           router.push("/login");
         }}
         className="bg-gray-200 hover:bg-gray-400 p-3 rounded-xl hover:text-white"

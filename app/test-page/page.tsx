@@ -1,10 +1,26 @@
 "use client";
 import Header from "@/components/Header";
-import { statements } from "@/helper/constant";
+import { api } from "@/helper/api";
+import { correctStatements } from "@/helper/constant";
+import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Test = () => {
   const router = useRouter();
+  const [statements, setStatements] = useState([]);
+
+  const fetchStatements = async () => {
+    const response = await axios.post(`${api}/get-statements`, {
+      userName: localStorage.getItem("userName"),
+    });
+
+    setStatements(response?.data?.statements);
+  };
+
+  useEffect(() => {
+    fetchStatements();
+  }, []);
   return (
     <div>
       <Header />
@@ -18,8 +34,12 @@ const Test = () => {
               {statements.map((s, i) => {
                 return (
                   <span key={i} className="border-b-2 pb-3">
-                    {" "}
                     {s}
+                    {s === correctStatements[i] ? (
+                      <span className="text-green-500">&#10004;</span> // Tick symbol
+                    ) : (
+                      <span className="text-red-600">&#10008;</span> // Cross symbol
+                    )}
                   </span>
                 );
               })}
