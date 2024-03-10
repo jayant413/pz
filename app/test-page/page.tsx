@@ -1,11 +1,10 @@
+"use client";
 import Header from "@/components/Header";
+import { statements } from "@/helper/constant";
+import { useRouter } from "next/navigation";
 
 const Test = () => {
-  const statements = [
-    " Pranjal don't have any idea how to fix it.",
-    "The dogs chased it's tail around in circles.",
-    "We should of gone to store earlier.",
-  ];
+  const router = useRouter();
   return (
     <div>
       <Header />
@@ -27,7 +26,12 @@ const Test = () => {
             </div>
           </div>
           <div className="w-full justify-center flex">
-            <button className="bg-gray-300 hover:bg-gray-700 hover:text-white text-gray-900 px-12 py-2 rounded-xl">
+            <button
+              className="bg-gray-300 hover:bg-gray-700 hover:text-white text-gray-900 px-12 py-2 rounded-xl"
+              onClick={() => {
+                router.push("/edit-page");
+              }}
+            >
               Edit
             </button>
           </div>

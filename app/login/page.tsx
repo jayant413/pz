@@ -49,9 +49,8 @@ const Login = () => {
           className="bg-white text-gray-600 w-[30rem] h-[30rem]  flex flex-col gap-y-8 
           absolute rounded-xl right-[20vw] top-[10vh] justify-center items-center"
         >
-          <div className="flex justify-center items-center text-xl uppercase">
-            {" "}
-            <a href="/login" className="text-gray-400">
+          <div className="flex justify-center text-gray-500 items-center text-xl uppercase">
+            <a href="/login" className="">
               Register
             </a>
             <span className="mx-5">|</span>
